@@ -2,3 +2,5 @@
 !Dockerfile
 !README.md
 !.gitignore
+!example-scripts/
+!example-scripts/*.sh
