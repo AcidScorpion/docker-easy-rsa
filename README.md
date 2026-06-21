@@ -34,7 +34,7 @@ All scripts are run on the host over SSH. The data directory `/opt/easy-rsa/easy
 | Script | Description |
 | --- | --- |
 | `init-pki.sh` | Initialize PKI structure |
-| `build-ca.sh` | Build CA, prompts for password interactively |
+| `build-ca.sh` | Build CA, prompts for password interactively, uploads CA cert to Mikrotik |
 | `gen-crl.sh` | Generate CRL and upload to Mikrotik via scp |
 | `issue-cert.sh` | Generate, sign, export PKCS12 and upload to Mikrotik |
 | `revoke-cert.sh` | Revoke a certificate and update CRL on Mikrotik |
@@ -51,7 +51,7 @@ All scripts are run on the host over SSH. The data directory `/opt/easy-rsa/easy
 ./example-scripts/build-ca.sh <pki-dir> <crl-uri> <ocsp-uri> <req-cn>
 ```
 
-Automatically uses `build-ca subca` for intermediate CAs when `pki-dir` starts with `pki-int-`.
+Automatically uses `build-ca subca` for intermediate CAs when `pki-dir` starts with `pki-int-`. Uploads `ca.crt` to Mikrotik at `/ca/` after build.
 
 ### gen-crl.sh
 
